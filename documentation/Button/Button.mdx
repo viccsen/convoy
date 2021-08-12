@@ -1,0 +1,49 @@
+---
+name: Button
+route: /
+menu: 组件
+---
+
+import { Playground, Props } from 'docz'
+import { Button } from 'bugu-ui'
+import BuguBox from '../../src/doc-components/doc-box'
+import BasicDemo from '../../src/button/demo/basic.tsx'
+import SizeBtn from '../../src/button/demo/size-btn.tsx'
+import LoadingButtonDemo from '../../src/button/demo/loading-btn.tsx'
+import BasicDemoCode from '!raw-loader!../../src/button/demo/basic.tsx'
+import SizeBtnCode from '!raw-loader!../../src/button/demo/size-btn.tsx'
+import LoadingButtonDemoCode from '!raw-loader!../../src/button/demo/loading-btn.tsx'
+
+## 使用说明
+
+按钮类型：
+
+-   默认按钮
+-   主题按钮
+-   危险按钮
+
+## 代码演示
+
+<BuguBox code={BasicDemoCode} title="按钮类型" desc="按钮类型，包括默认类型，主题类型，危险类型。">
+    <BasicDemo />
+</BuguBox>
+
+<BuguBox
+    code={SizeBtnCode}
+    title="按钮尺寸"
+    desc="设置属性size，大，中，小的值分别是large，middle，small，默认为middle。"
+>
+    <SizeBtn />
+</BuguBox>
+
+<BuguBox code={LoadingButtonDemoCode} title="加载中" desc="loading属性为true时，Button即可处于loading状态。">
+    <LoadingButtonDemo />
+</BuguBox>
+
+## API
+
+| 属性    | 说明                        | 类型    | 默认值  |
+| ------- | --------------------------- | ------- | ------- | ------ | --------- |
+| type    | 设置按钮类型                | default \| primary \| danger | default |
+| size    | 设置按钮大小                | small   \| middle  \| large  | middle    |
+| loading | 设置按钮是否为 loading 状态 | boolean | false   |

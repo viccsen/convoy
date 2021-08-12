@@ -1,0 +1,129 @@
+{
+  "name": "convoy-sc",
+  "version": "1.0.0",
+  "description": "A scaffold for creating libraries",
+  "homepage": "https://github.com/viccsen/convoy",
+  "title": "Convoy",
+  "keywords": [
+    "convoy"
+  ],
+  "contributors": [
+    "viccsen"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/viccsen/convoy"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "dist/*",
+    "es/**/style/*",
+    "lib/**/style/*",
+    "*.less"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "unpkg": "dist/index.min.js",
+  "typings": "lib/index.d.ts",
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
+  "pre-commit": [
+    "lint"
+  ],
+  "scripts": {
+    "clean": "rm -rf es lib",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --coverage",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "prebuild": "rm -rf es lib dist",
+    "prepublishOnly": "npm run build",
+    "build:esm": "tsc -p . --outDir es",
+    "build:cjs": "tsc -p . -m commonjs --outDir lib",
+    "build:umd": "rollup -c",
+    "build:style": "gulp compile:less",
+    "build": "run-s \"build:*\"",
+    "doc:dev": "docz dev",
+    "doc:build": "rimraf docs && docz build",
+    "doc:preview": "docz serve",
+    "doc:deploy": "npm run doc:build && gh-pages -d docs"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.1",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@rollup/plugin-replace": "^2.3.4",
+    "@rollup/plugin-typescript": "^6.1.0",
+    "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^26.0.15",
+    "@types/prismjs": "^1.16.2",
+    "@types/react-copy-to-clipboard": "^5.0.0",
+    "@types/styled-components": "^5.1.4",
+    "autoprefixer": "^10.0.4",
+    "babel-jest": "^26.6.3",
+    "babel-plugin-import": "^1.13.3",
+    "babel-plugin-styled-components": "^1.12.0",
+    "bufferutil": "^4.0.2",
+    "canvas": "^2.6.1",
+    "codecov": "^3.8.1",
+    "docz": "^2.3.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "gatsby-plugin-less": "^4.3.0",
+    "gatsby-plugin-styled-components": "^3.6.0",
+    "gh-pages": "^3.1.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-if": "^3.0.0",
+    "jest": "^26.6.3",
+    "less": "^3.12.2",
+    "less-plugin-npm-import": "^2.1.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.0",
+    "prettier": "^2.2.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.33.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "through2": "^4.0.2",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.0.0",
+    "tslib": "^2.0.3",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.1.2",
+    "utf-8-validate": "^5.0.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.12.5",
+    "@types/classnames": "^2.2.6",
+    "classnames": "^2.2.6",
+    "pre-commit": "^1.2.2",
+    "prismjs": "^1.22.0",
+    "raw-loader": "^4.0.2",
+    "styled-components": "^5.2.1"
+  },
+  "peerDependencies": {
+  },
+  "engines": {
+    "node": ">=12.18.3"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
